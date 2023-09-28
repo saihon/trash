@@ -18,21 +18,28 @@ When deleting, not only "files" directory also everything in the Trash including
 
 <br/>
 
-* Installed GNU make.
+* Clone & Build & Install (Installed GNU make)
   ```
   git clone https://github.com/saihon/trash.git
-  make
-  sudo make install
+  ```
+  ```
+  make && sudo make install
   ```
   NOTE: Run make will generate a file named "tt". if change it, rewrite NAME in Makefile or install manually like bellow.
 
 <br/>
 
-* Manually (download & build & install)
+* Manually Download & Build & Install
   ```
   wget https://raw.githubusercontent.com/saihon/trash/master/trash.sh
+  ```
+  ```
   cp trash.sh tt
+  ```
+  ```
   chmod 755 tt
+  ```
+  ```
   sudo mv tt /usr/local/bin/
   ```
 
