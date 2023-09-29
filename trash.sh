@@ -95,7 +95,7 @@ func-parse() {
 }
 
 func-list() {
-	local c='ls'
+	local c='ls --color=auto'
 	"${O_ALL}" && c="$c -A"
 	"${O_LIST}" && c="$c -l"
 	$c "$TRASH_FILES"
