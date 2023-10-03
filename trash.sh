@@ -112,7 +112,7 @@ func-delete() {
 
 	while IFS= read -r -d '' v; do
 		sh -c "rm -rf '$v'"
-		[ ! -d "$v" ] && mkdir "$v"
+		[ ! -d "$v" ] && mkdir "$v" && chown "$(logname):$(logname)" "$v"
 	done < <(find "${TRASH_ROOT:?}/"* -maxdepth 0 -type d -print0)
 }
 
