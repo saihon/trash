@@ -126,7 +126,7 @@ func-main() {
 	NAME=$(basename "$0")
 	readonly NAME
 
-	VERSION="v0.0.2"
+	VERSION="v0.0.3"
 	readonly VERSION
 
 	local -i argc=0
