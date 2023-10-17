@@ -139,7 +139,7 @@ func-main() {
 	# to root even if elevated privileges.
 	# So use this instead of whoami, $HOME or $USER.
 	if type logname > /dev/null 2>&1; then
-		USERNAME="$(logname)"
+		USERNAME="$(logname 2> /dev/null || echo "$USERNAME")"
 	fi
 	TRASH_ROOT="/home/$USERNAME/.local/share/Trash"
 	readonly TRASH_ROOT
