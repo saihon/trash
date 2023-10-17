@@ -112,7 +112,7 @@ func-delete() {
 
 	while IFS= read -r -d '' v; do
 		sh -c "rm -rf '$v'"
-		[ ! -d "$v" ] && mkdir "$v" && chown "$(logname):$(logname)" "$v"
+		[ ! -d "$v" ] && mkdir "$v" && chown "$USERNAME:$USERNAME" "$v"
 	done < <(find "${TRASH_ROOT:?}/"* -maxdepth 0 -type d -print0)
 }
 
@@ -134,10 +134,14 @@ func-main() {
 
 	func-parse "$@"
 
+	local USERNAME="$USER"
 	# logname command does not change the user name
 	# to root even if elevated privileges.
 	# So use this instead of whoami, $HOME or $USER.
-	TRASH_ROOT="/home/$(logname)/.local/share/Trash"
+	if type logname > /dev/null 2>&1; then
+		USERNAME="$(logname)"
+	fi
+	TRASH_ROOT="/home/$USERNAME/.local/share/Trash"
 	readonly TRASH_ROOT
 
 	TRASH_FILES="$TRASH_ROOT/files"
