@@ -27,7 +27,7 @@
 NAME=$(basename "$0")
 readonly NAME
 
-readonly VERSION="v0.0.3"
+readonly VERSION="v0.0.4"
 
 readonly TRASH_ROOT="/home/$USER/.local/share/Trash"
 readonly TRASH_FILES="$TRASH_ROOT/files"
